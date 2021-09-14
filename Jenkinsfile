@@ -4,7 +4,7 @@ pipeline {
         registryCredential = 'dockerhub' 
         dockerImage = '' 
     }
-    agent any 
+    agent {label 'agent' }
     stages { 
         stage('Cloning our Git') { 
             steps { 
@@ -14,7 +14,9 @@ pipeline {
         stage('Building our image') { 
             steps { 
                 script { 
+                    docker.withTool('docker') {
                     dockerImage = docker.build registry + ":$BUILD_NUMBER" 
+                    }
                 }
             } 
         }
