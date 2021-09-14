@@ -27,9 +27,13 @@ pipeline {
                     //docker.withRegistry( '', registryCredential ) { 
                     //    dockerImage.push() 
                     //}
-                    withDockerRegistry(credentialsId: registryCredential, toolName: 'docker', url: registryurl) {
-                         dockerImage.push() 
-                    }
+                   // withDockerRegistry(credentialsId: registryCredential, toolName: 'docker', url: registryurl) {
+                     //    dockerImage.push() 
+                    //}
+                    docker.withRegistry('https://hub.docker.com/repository/docker/', 'manojkumar641027/myregistry'){
+                            docker.build(registry + "ubuntu:java8").push()
+                        }
+
                 } 
             }
         } 
