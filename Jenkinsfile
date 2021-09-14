@@ -8,7 +8,7 @@ pipeline {
     stages { 
         stage('Cloning our Git') { 
             steps { 
-                git 'https://gitlab.training.dagility.com/manojkumar_gnanasekaran/dagilitytrainingdockerfile.git'' 
+                git 'https://gitlab.training.dagility.com/manojkumar_gnanasekaran/dagilitytrainingdockerfile.git' 
             }
         } 
         stage('Building our image') { 
