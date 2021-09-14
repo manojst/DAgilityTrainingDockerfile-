@@ -28,8 +28,8 @@ pipeline {
                     //    dockerImage.push() 
                     //}
                     withDockerRegistry(credentialsId: registryCredential, toolName: 'docker', url: registry) {
-    dockerImage.push() 
-}
+                         dockerImage.push() 
+                    }
                 } 
             }
         } 
