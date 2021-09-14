@@ -1,5 +1,4 @@
-FROM busybox
-ENV FOO=/bar
-WORKDIR ${FOO}   # WORKDIR /bar
-ADD . $FOO       # ADD . /bar
-COPY \$FOO /quux # COPY $FOO /quux
+FROM ubuntu:18.04
+CMD ["apt-get" "-y" "update"]
+CMD ["apt-get" "-y" "install" "openjdk-8-jdk"]
+
