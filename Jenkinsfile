@@ -1,7 +1,7 @@
 pipeline { 
     environment { 
         registry = "manojkumar641027/myregistry" 
-        registryCredential = 'dockerhub' 
+        registryCredential = 'c7e5d531-63dc-4392-9e4e-69739f37fd95' 
         dockerImage = '' 
     }
     agent {label 'agent' }
@@ -23,9 +23,12 @@ pipeline {
         stage('Deploy our image') { 
             steps { 
                 script { 
-                    docker.withRegistry( '', registryCredential ) { 
-                        dockerImage.push() 
-                    }
+                    //docker.withRegistry( '', registryCredential ) { 
+                    //    dockerImage.push() 
+                    //}
+                    withDockerRegistry(credentialsId: registryCredential, toolName: 'docker', url: 'https://hub.docker.com/repository/docker/manojkumar641027/myregistry') {
+    dockerImage.push() 
+}
                 } 
             }
         } 
