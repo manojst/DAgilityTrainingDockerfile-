@@ -11,7 +11,7 @@ pipeline {
                     docker.withTool('docker') {
                         docker.withRegistry('https://registry.hub.docker.com', 'c7e5d531-63dc-4392-9e4e-69739f37fd95'){
                             //docker.build(registry + "ubuntu:java8").push()
-                            //docker.build(registry).push()
+                            docker.build(registry).push()
                             sh 'docker images'
                             sh 'docker rmi ${registry}'
                             echo '************after remove image*****************' 
