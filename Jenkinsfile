@@ -18,6 +18,7 @@ pipeline {
                 script { 
                     docker.withTool('docker') {
                     dockerImage = docker.build registry + ":$BUILD_NUMBER" 
+                    sh 'docker image tag $dockerImage  $registry'
                     }
                 }
             } 
@@ -30,7 +31,7 @@ pipeline {
                     //}
                     docker.withTool('docker') {
                         withDockerRegistry(credentialsId: registryCredential, toolName: 'docker', url: registryurl){
-                            dockerImage.push()
+                            dockerImage.push()                            
                         }                         
                     }
                     /*docker.withRegistry('https://hub.docker.com/repository/docker/', 'c7e5d531-63dc-4392-9e4e-69739f37fd95'){
