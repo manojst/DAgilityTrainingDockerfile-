@@ -18,7 +18,7 @@ pipeline {
                 script { 
                     docker.withTool('docker') {
                     dockerImage = docker.build registry + ":$BUILD_NUMBER" 
-                    sh 'docker image tag $dockerImage $registry'
+                    sh 'docker image tag ${dockerImage} ${registry}'
                     }
                 }
             } 
