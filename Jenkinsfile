@@ -12,6 +12,10 @@ pipeline {
                         docker.withRegistry('https://registry.hub.docker.com', 'c7e5d531-63dc-4392-9e4e-69739f37fd95'){
                             //docker.build(registry + "ubuntu:java8").push()
                             sh 'docker images'
+                            sh 'docker rmi manojkumar641027/myregistry'
+                            echo '************after remove images*****************' 
+                            sh 'docker images'
+
                         }
                     }
                 } 
