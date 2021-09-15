@@ -27,8 +27,9 @@ pipeline {
                     //docker.withRegistry( '', registryCredential ) { 
                     //    dockerImage.push() 
                     //}
-                    withDockerRegistry(credentialsId: registryCredential, toolName: 'docker', url: registryurl) {
-                       dockerImage.push() 
+                    docker.withTool('docker') {
+                        withDockerRegistry(credentialsId: registryCredential, toolName: 'docker', url: registryurl)
+                        dockerImage.push() 
                     }
                     /*docker.withRegistry('https://hub.docker.com/repository/docker/', 'c7e5d531-63dc-4392-9e4e-69739f37fd95'){
                             docker.build(registry + "ubuntu:java8").push()
