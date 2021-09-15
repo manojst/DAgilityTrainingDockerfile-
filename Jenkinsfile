@@ -1,7 +1,8 @@
 pipeline { 
     environment { 
         registry = "manojkumar641027/myregistry" 
-        registryurl = 'https://hub.docker.com/repository/docker/manojkumar641027/myregistry'
+        //registryurl = 'https://hub.docker.com/repository/docker/manojkumar641027/myregistry'
+        registryurl = 'https://registry.hub.docker.com'
         registryCredential = 'c7e5d531-63dc-4392-9e4e-69739f37fd95' 
         dockerImage = '' 
     }
