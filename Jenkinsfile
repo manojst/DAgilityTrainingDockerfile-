@@ -18,7 +18,7 @@ pipeline {
                             sh 'docker images'
                             sh 'docker pull ${registry}'
                             echo '************after Pull images*****************' 
-                            sh 'docker images '
+                            sh 'docker images'
 
                         }
                     }
