@@ -15,6 +15,9 @@ pipeline {
                             sh 'docker rmi ${registry}ubuntu:java8'
                             echo '************after remove images*****************' 
                             sh 'docker images'
+                            sh 'docker pull manojkumar641027/myregistryubuntu'
+                            echo '************after Pull images*****************' 
+                            sh 'docker images'
 
                         }
                     }
